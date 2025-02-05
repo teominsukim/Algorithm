@@ -58,21 +58,25 @@ int solve()
 
     sort(countrys.begin(), countrys.end(), compare);
 
-    int count = 0;
+    int count1 = 0;
+    int count2 = 0;
     for (int j = 0; j < n; j++)
     {
         
 
-        count++;
+        count1++;
+        count2++;
 
         if (j > 0 && (countrys[j].gold == countrys[j - 1].gold && countrys[j].bronze == countrys[j - 1].bronze && countrys[j].silver == countrys[j - 1].silver))
         {
-            count--;
+            count1--;
+        } else {
+            count1 = count2;
         }
 
         if (countrys[j].id == m)
         {
-            return count;
+            return count1;
         }
 
     }
